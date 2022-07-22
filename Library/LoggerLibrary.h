@@ -4,7 +4,7 @@
 #include <string>
 #include "LoggerConfig.h"
 
-namespace LoggingSystemLibrary::Info {
+namespace LoggerLibrary::Info {
 
     static std::string getVersion() {
         std::string majorVersion = std::to_string(LOGGER_VERSION_MAJOR);
