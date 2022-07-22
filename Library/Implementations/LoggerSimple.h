@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 
-#include "Logger.h"
+#include "../Logger.h"
 #include "LoggerSimpleAbstract.h"
 
 class LoggerSimple : public Logger, public LoggerSimpleAbstract {
