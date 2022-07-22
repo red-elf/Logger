@@ -1,5 +1,5 @@
-#ifndef LOGGINGSYSTEM_COLOR_H
-#define LOGGINGSYSTEM_COLOR_H
+#ifndef LOGGER_COLOR_H
+#define LOGGER_COLOR_H
 
 #include <string>
 
@@ -18,4 +18,4 @@ private:
     int color;
 };
 
-#endif //LOGGINGSYSTEM_COLOR_H
+#endif //LOGGER_COLOR_H

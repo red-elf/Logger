@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 project(Logger)
 
 # The version number.
-set(LOGGER_VERSION_MAJOR 0)
-set(LOGGER_VERSION_MINOR 1)
+set(LOGGER_VERSION_MAJOR 1)
+set(LOGGER_VERSION_MINOR 0)
 
 # Configure a header file to pass some of the CMake settings  to the source code
 configure_file(
@@ -17,12 +17,11 @@ configure_file(
 include_directories("Implementations")
 
 file(GLOB LIB_SRC "*.h" "*.cpp")
-add_library(LoggingSystemLibrary ${LIB_SRC})
+add_library(Logger ${LIB_SRC})
 
-# TODO:
-# Build a CPack driven installer package
-#include (InstallRequiredSystemLibraries)
-#set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-#set (CPACK_PACKAGE_VERSION_MAJOR "${LoggingSystemLibrary_VERSION_MAJOR}")
-#set (CPACK_PACKAGE_VERSION_MINOR "${LoggingSystemLibrary_VERSION_MINOR}")
-#include (CPack)
+# Install library
+install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
+
+# Install library headers
+file(GLOB HEADERS *.h)
+install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME})

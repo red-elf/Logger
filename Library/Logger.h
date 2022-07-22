@@ -1,5 +1,5 @@
-#ifndef LOGGINGSYSTEM_LOGGER_H
-#define LOGGINGSYSTEM_LOGGER_H
+#ifndef LOGGER_LOGGER_H
+#define LOGGER_LOGGER_H
 
 #include <iostream>
 #include <string>
@@ -91,4 +91,4 @@ protected:
     }
 };
 
-#endif //LOGGINGSYSTEM_LOGGER_H
+#endif //LOGGER_LOGGER_H

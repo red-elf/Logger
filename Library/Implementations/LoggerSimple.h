@@ -1,5 +1,5 @@
-#ifndef LOGGINGSYSTEM_LOGGERSIMPLE_H
-#define LOGGINGSYSTEM_LOGGERSIMPLE_H
+#ifndef LOGGER_LOGGERSIMPLE_H
+#define LOGGER_LOGGERSIMPLE_H
 
 #include <list>
 #include <string>
@@ -116,4 +116,4 @@ private:
 };
 
 
-#endif //LOGGINGSYSTEM_LOGGERSIMPLE_H
+#endif //LOGGER_LOGGERSIMPLE_H

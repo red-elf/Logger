@@ -1,5 +1,5 @@
-#ifndef LOGGINGSYSTEM_LOGGERCHAINED_H
-#define LOGGINGSYSTEM_LOGGERCHAINED_H
+#ifndef LOGGER_LOGGERCHAINED_H
+#define LOGGER_LOGGERCHAINED_H
 
 #include <list>
 #include <string>
@@ -33,4 +33,4 @@ private:
 };
 
 
-#endif //LOGGINGSYSTEM_LOGGERCHAINED_H
+#endif //LOGGER_LOGGERCHAINED_H

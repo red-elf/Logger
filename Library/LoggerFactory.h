@@ -1,5 +1,5 @@
-#ifndef LOGGINGSYSTEM_LOGGERFACTORY_H
-#define LOGGINGSYSTEM_LOGGERFACTORY_H
+#ifndef LOGGER_LOGGERFACTORY_H
+#define LOGGER_LOGGERFACTORY_H
 
 #include <string>
 #include <list>
@@ -85,4 +85,4 @@ private:
     }
 };
 
-#endif //LOGGINGSYSTEM_LOGGERFACTORY_H
+#endif //LOGGER_LOGGERFACTORY_H
