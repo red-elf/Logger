@@ -1,6 +1,3 @@
-#ifndef LOGGINGSYSTEM_LOGGERSIMPLEMOCKED_H
-#define LOGGINGSYSTEM_LOGGERSIMPLEMOCKED_H
-
 #include <list>
 #include <string>
 
@@ -51,6 +48,3 @@ private:
 
     long mockedTime = 0;
 };
-
-
-#endif // LOGGINGSYSTEM_LOGGERSIMPLEMOCKED_H

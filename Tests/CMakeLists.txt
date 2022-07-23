@@ -20,10 +20,7 @@ file(
         "Tests/Implementations/*.cpp"
 )
 
-file(
-        GLOB APP_SRC
-        "LoggingSystemConfig.h.in"
-)
+file(GLOB APP_SRC)
 
 # Logger dependency:
 include_directories("/usr/local/include/Logger") # Access to shared library header files
@@ -36,22 +33,22 @@ link_directories("/usr/local/lib/Tester") # Link shared library
 link_libraries(Tester)
 
 add_executable(Tryout ${APP_SRC} main.cpp)
-add_executable(Tests ${APP_SRC} ${APP_TEST_SRC} tests.cpp)
+add_executable(Test ${APP_SRC} ${APP_TEST_SRC} tests.cpp)
 add_executable(MocksGenerator ${APP_SRC} ${APP_TEST_SRC} mock_log_data_generator.cpp)
-
-set(COPYING_MOCKS_ENABLED true)
-set(GENERATE_MOCKS_ENABLED true)
-
-if (${GENERATE_MOCKS_ENABLED})
-    add_custom_command(TARGET MocksGenerator
-            POST_BUILD
-            COMMAND ./MockLogDataGenerator
-            )
-endif (${GENERATE_MOCKS_ENABLED})
-
-if (${COPYING_MOCKS_ENABLED})
-    add_custom_command(TARGET Tests
-            POST_BUILD
-            COMMAND cp Mocks/*.mock ..
-            )
-endif (${COPYING_MOCKS_ENABLED})
+#
+#set(COPYING_MOCKS_ENABLED true)
+#set(GENERATE_MOCKS_ENABLED true)
+#
+#if (${GENERATE_MOCKS_ENABLED})
+#    add_custom_command(TARGET MocksGenerator
+#            POST_BUILD
+#            COMMAND ./MockLogDataGenerator
+#            )
+#endif (${GENERATE_MOCKS_ENABLED})
+#
+#if (${COPYING_MOCKS_ENABLED})
+#    add_custom_command(TARGET Tests
+#            POST_BUILD
+#            COMMAND cp Mocks/*.mock ..
+#            )
+#endif (${COPYING_MOCKS_ENABLED})
