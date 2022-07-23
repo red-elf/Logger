@@ -36,19 +36,11 @@ add_executable(Tryout ${APP_SRC} main.cpp)
 add_executable(Test ${APP_SRC} ${APP_TEST_SRC} tests.cpp)
 add_executable(MocksGenerator ${APP_SRC} ${APP_TEST_SRC} mock_log_data_generator.cpp)
 
-set(COPYING_MOCKS_ENABLED true)
-set(GENERATE_MOCKS_ENABLED true)
+set(DO_TEST true)
 
-if (${GENERATE_MOCKS_ENABLED})
+if (${DO_TEST})
     add_custom_command(TARGET MocksGenerator
             POST_BUILD
-            COMMAND ./MocksGenerator
+            COMMAND ./MocksGenerator && ./Test
             )
-endif (${GENERATE_MOCKS_ENABLED})
-#
-#if (${COPYING_MOCKS_ENABLED})
-#    add_custom_command(TARGET Test
-#            POST_BUILD
-#            COMMAND cp *.mock ../Mocks
-#            )
-#endif (${COPYING_MOCKS_ENABLED})
+endif (${DO_TEST})
