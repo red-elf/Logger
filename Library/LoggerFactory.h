@@ -5,7 +5,7 @@
 #include <list>
 #include <map>
 
-#include "Implementations/LoggerSimple.h"
+#include "LoggerSimple.h"
 
 namespace LoggerFactoryImplementationNames {
 
