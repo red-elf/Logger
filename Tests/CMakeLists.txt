@@ -39,8 +39,8 @@ add_executable(Tryout ${APP_SRC} main.cpp)
 add_executable(Tests ${APP_SRC} ${APP_TEST_SRC} tests.cpp)
 add_executable(MocksGenerator ${APP_SRC} ${APP_TEST_SRC} mock_log_data_generator.cpp)
 
-set(COPYING_MOCKS_ENABLED false)
-set(GENERATE_MOCKS_ENABLED false)
+set(COPYING_MOCKS_ENABLED true)
+set(GENERATE_MOCKS_ENABLED true)
 
 if (${GENERATE_MOCKS_ENABLED})
     add_custom_command(TARGET MocksGenerator

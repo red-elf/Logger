@@ -12,7 +12,7 @@
 #include "FileOutputWriter.h"
 #include "Implementations/LoggerSimpleMocked.h"
 
-namespace LoggingSystemLibrary::MockLogDataGenerator {
+namespace LoggerLibrary::MockLogDataGenerator {
 
     enum class LogMethodVersion {
         message,

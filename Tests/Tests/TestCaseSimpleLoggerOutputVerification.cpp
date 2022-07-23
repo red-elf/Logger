@@ -8,7 +8,7 @@
 #include "TestCaseSimpleLoggerOutputVerification.h"
 #include "MockLogDataGenerator.h"
 
-using namespace LoggingSystemLibrary::MockLogDataGenerator;
+using namespace LoggerLibrary::MockLogDataGenerator;
 
 std::vector<std::string> getDirectoryFiles(const std::string &dir) {
     std::vector<std::string> files;
