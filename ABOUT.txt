@@ -1,1 +1,1 @@
-'Logger': C++ Library by the Red Elf
+'Logger': C++ Library by Red Elf
