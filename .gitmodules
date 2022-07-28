@@ -4,3 +4,6 @@
 [submodule "Dependable"]
 	path = Dependable
 	url = git@github.com:red-elf/Dependable.git
+[submodule "Versionable"]
+	path = Versionable
+	url = git@github.com:red-elf/Versionable.git
