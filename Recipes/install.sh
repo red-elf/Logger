@@ -6,6 +6,6 @@ echo "Installing the 'Logger' library, please wait" && \
   mkdir Build && \
   cd Build && \
   cmake .. && \
-  make && \
+  make -j "$(nproc)" && \
   sudo make install && \
   echo "The 'Logger' library has been installed with success"
