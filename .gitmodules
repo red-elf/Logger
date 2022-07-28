@@ -1,3 +1,6 @@
 [submodule "Installable"]
 	path = Installable
 	url = git@github.com:red-elf/Installable.git
+[submodule "Dependable"]
+	path = Dependable
+	url = git@github.com:red-elf/Dependable.git
