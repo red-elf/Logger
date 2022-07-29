@@ -1,18 +1,8 @@
 cmake_minimum_required(VERSION 3.22)
 
-set(CMAKE_CXX_STANDARD 17)
+include(${CMAKE_CURRENT_SOURCE_DIR}/../Versionable/CMake/CMakeLists.txt)
 
-project(Logger)
-
-# The version number.
-set(LOGGER_VERSION_MAJOR 1)
-set(LOGGER_VERSION_MINOR 0)
-
-# Configure a header file to pass some of the CMake settings  to the source code
-configure_file(
-        "${CMAKE_CURRENT_SOURCE_DIR}/LoggerConfig.h.in"
-        "${CMAKE_CURRENT_SOURCE_DIR}/LoggerConfig.h"
-)
+project(${VERSIONABLE_NAME})
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 include_directories("Implementations")
