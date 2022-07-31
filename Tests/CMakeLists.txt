@@ -23,14 +23,14 @@ file(
 file(GLOB APP_SRC)
 
 # Logger dependency:
-include_directories("/usr/local/include/Logger") # Access to shared library header files
-link_directories("/usr/local/lib/Logger") # Link shared library
-link_libraries(Logger)
+include_directories("/usr/local/include/Logger-1.0.0") # Access to shared library header files
+link_directories("/usr/local/lib/Logger-1.0.0") # Link shared library
+link_libraries(Logger-1.0.0)
 
 # Tester dependency:
-include_directories("/usr/local/include/Tester") # Access to shared library header files
-link_directories("/usr/local/lib/Tester") # Link shared library
-link_libraries(Tester)
+include_directories("/usr/local/include/Tester-1.0.0") # Access to shared library header files
+link_directories("/usr/local/lib/Tester-1.0.0") # Link shared library
+link_libraries(Tester-1.0.0)
 
 add_executable(Tryout ${APP_SRC} main.cpp)
 add_executable(Test ${APP_SRC} ${APP_TEST_SRC} tests.cpp)
