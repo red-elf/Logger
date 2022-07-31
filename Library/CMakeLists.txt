@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/../Versionable/CMake/CMakeLists.txt)
 
-project(${VERSIONABLE_NAME})
+project(${PROJECT_FULL_NAME})
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 include_directories("Implementations")
