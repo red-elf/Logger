@@ -8,7 +8,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 include_directories("Implementations")
 
 file(GLOB LIB_SRC "*.h" "*.cpp" "Implementations/*.h" "Implementations/*.cpp")
-add_library(Logger ${LIB_SRC})
+add_library(${PROJECT_NAME} ${LIB_SRC})
 
 # Install library
 install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
