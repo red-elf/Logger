@@ -1,13 +1,19 @@
 #!/bin/bash
 
-echo "Installing the 'Logger' library, please wait" && \
-  cd Library && \
-  rm -rf ./Build && \
-  mkdir Build && \
-  cd Build && \
-  source ../../Version/version.sh && cmake -GNinja -DVERSIONABLE_VERSION_PRIMARY="$VERSIONABLE_VERSION_PRIMARY" \
-  -DVERSIONABLE_VERSION_SECONDARY="$VERSIONABLE_VERSION_SECONDARY" -DVERSIONABLE_NAME="$VERSIONABLE_NAME" \
-  -DVERSIONABLE_VERSION_PATCH="$VERSIONABLE_VERSION_PATCH" .. && \
-  ninja -j "$(nproc)" && \
-  sudo ninja install && \
-  echo "The 'Logger' library has been installed with success"
+HERE="$(pwd)"
+VERSIONABLE_BUILD_SCRIPT="$HERE/Versionable/versionable_build.sh"
+VERSIONABLE_INSTALL_SCRIPT="$HERE/Versionable/versionable_install.sh"
+
+if ! test -e "$VERSIONABLE_BUILD_SCRIPT"; then
+
+  echo "ERROR: The versionable build script not found at expected location: '$VERSIONABLE_BUILD_SCRIPT'"
+  exit 1
+fi
+
+if ! test -e "$VERSIONABLE_INSTALL_SCRIPT"; then
+
+  echo "ERROR: The versionable install script not found at expected location: '$VERSIONABLE_INSTALL_SCRIPT'"
+  exit 1
+fi
+
+cd "$HERE" && sh "$VERSIONABLE_BUILD_SCRIPT" Library .. &&  sh "$VERSIONABLE_INSTALL_SCRIPT" Library
