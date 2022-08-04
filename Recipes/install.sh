@@ -16,4 +16,5 @@ if ! test -e "$VERSIONABLE_INSTALL_SCRIPT"; then
   exit 1
 fi
 
-cd "$HERE" && sh "$VERSIONABLE_BUILD_SCRIPT" Library .. &&  sh "$VERSIONABLE_INSTALL_SCRIPT" Library
+cd "$HERE" && sh "$VERSIONABLE_BUILD_SCRIPT" Library .. &&  sh "$VERSIONABLE_INSTALL_SCRIPT" Library && \
+  cd "$HERE" && sh "$VERSIONABLE_BUILD_SCRIPT" Application .. &&  sh "$VERSIONABLE_INSTALL_SCRIPT" Application
