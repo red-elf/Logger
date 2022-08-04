@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
+set(VERSIONABLE_VERSION_EXECUTABLE ON)
 include(${CMAKE_CURRENT_SOURCE_DIR}/../Versionable/CMake/CMakeLists.txt)
 
 project(${PROJECT_FULL_NAME})

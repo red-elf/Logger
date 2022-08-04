@@ -4,10 +4,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(Tryout)
 
-# The version number.
-set(LOGGER_VERSION_MAJOR 1)
-set(LOGGER_VERSION_MINOR 0)
-
 include_directories("${PROJECT_BINARY_DIR}" "${PROJECT_BINARY_DIR}/Tests" "${PROJECT_BINARY_DIR}/Tests/Implementations")
 
 set(EXTRA_LIBS ${EXTRA_LIBS})
