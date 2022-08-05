@@ -34,6 +34,9 @@ int main(int argc, char *argv[]) {
             .help("The log message (required!)")
             .required();
 
+    program.add_description("Red Elf Logger (relog)");
+    program.add_epilog("Project homepage: https://github.com/red-elf/Logger");
+
     try {
 
         program.parse_args(argc, argv);
