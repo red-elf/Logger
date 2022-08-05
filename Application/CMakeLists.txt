@@ -17,6 +17,9 @@ include_directories("/usr/local/include/Tester-1.0.0") # Access to shared librar
 link_directories("/usr/local/lib/Tester-1.0.0") # Link shared library
 link_libraries(Tester-1.0.0)
 
+# argparse dependency:
+include_directories("/usr/local/include/argparse")
+
 file(GLOB APP_SRC "*.h" "*.cpp")
 add_executable(${RELOG} ${APP_SRC} main.cpp)
 
