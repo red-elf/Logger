@@ -21,9 +21,16 @@ int main(int argc, char *argv[]) {
 
     argparse::ArgumentParser program(relog, version);
 
-//    program
-//            .add_argument("-v", "--version")
-//            .help("Shows the current program version");
+    program
+            .add_argument("-l", "--level")
+            .help("Log level: verbose (v), debug (d), info (i), warning (w), error (e)");
+
+    program.add_argument("-t", "--tag")
+            .help("The log tag");
+
+    program.add_argument("-m", "--message")
+            .help("The log message (required!)")
+            .required();
 
     try {
 
