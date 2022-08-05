@@ -36,8 +36,16 @@ int main(int argc, char *argv[]) {
             .help("The log message (required!)")
             .required();
 
-    program.add_description("Red Elf Logger (relog)");
-    program.add_epilog("Project homepage: https://github.com/red-elf/Logger");
+    std::string description("Red Elf Logger");
+    description.append(" (").append(relog).append(")");
+
+    // TODO: Obtain the value via BuildConfig:
+    std::string landingPage("https://github.com/red-elf/Logger");
+    std::string epilog("Project homepage: ");
+    epilog.append(landingPage);
+
+    program.add_description(description);
+    program.add_epilog(epilog);
 
     try {
 
