@@ -7,18 +7,34 @@
 #include "LoggerLibrary.h"
 #include "BuildConfig.h"
 
-int main() {
+int main(int argc, char *argv[]) {
 
+    auto relog = "relog";
     auto version = std::to_string(VERSIONABLE_VERSION_PRIMARY) +
-                             "." + std::to_string(VERSIONABLE_VERSION_SECONDARY) +
-                             "." + std::to_string(VERSIONABLE_VERSION_PATCH);
+                   "." + std::to_string(VERSIONABLE_VERSION_SECONDARY) +
+                   "." + std::to_string(VERSIONABLE_VERSION_PATCH);
 
     if (VERSIONABLE_SNAPSHOT) {
 
         version += "-SNAPSHOT";
     }
 
-    argparse::ArgumentParser program("relog", version);
-    program.add_argument("-v", "--version");
+    argparse::ArgumentParser program(relog, version);
+
+//    program
+//            .add_argument("-v", "--version")
+//            .help("Shows the current program version");
+
+    try {
+
+        program.parse_args(argc, argv);
+    }
+    catch (const std::runtime_error &err) {
+
+        std::cerr << err.what() << std::endl;
+        std::cerr << program;
+        std::exit(1);
+    }
+
     return 0;
 }
