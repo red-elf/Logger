@@ -10,13 +10,15 @@
 int main(int argc, char *argv[]) {
 
     auto relog = "relog";
-    auto version = std::to_string(VERSIONABLE_VERSION_PRIMARY) +
-                   "." + std::to_string(VERSIONABLE_VERSION_SECONDARY) +
-                   "." + std::to_string(VERSIONABLE_VERSION_PATCH);
+    auto version = std::to_string(VERSIONABLE_VERSION_PRIMARY)
+                           .append(".")
+                           .append(std::to_string(VERSIONABLE_VERSION_SECONDARY))
+                           .append(".")
+                           .append(std::to_string(VERSIONABLE_VERSION_PATCH));
 
     if (VERSIONABLE_SNAPSHOT) {
 
-        version += "-SNAPSHOT";
+        version.append("-SNAPSHOT");
     }
 
     argparse::ArgumentParser program(relog, version);
