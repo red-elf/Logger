@@ -11,10 +11,10 @@ int main(int argc, char *argv[]) {
 
     auto relog = "relog";
     auto version = std::to_string(VERSIONABLE_VERSION_PRIMARY)
-                           .append(".")
-                           .append(std::to_string(VERSIONABLE_VERSION_SECONDARY))
-                           .append(".")
-                           .append(std::to_string(VERSIONABLE_VERSION_PATCH));
+            .append(".")
+            .append(std::to_string(VERSIONABLE_VERSION_SECONDARY))
+            .append(".")
+            .append(std::to_string(VERSIONABLE_VERSION_PATCH));
 
     if (VERSIONABLE_SNAPSHOT) {
 
@@ -56,6 +56,18 @@ int main(int argc, char *argv[]) {
         std::cerr << err.what() << std::endl;
         std::cerr << program;
         std::exit(1);
+    }
+
+    try {
+
+        auto tag = program.get<std::string>("tag");
+        auto level = program.get<std::string>("level");
+        auto message = program.get<std::string>("message");
+        std::cout << "Tag: '" << tag << "', Level: '" << level << "', Message: '" << message << "'" << std::endl;
+
+    } catch (std::logic_error &e) {
+
+        std::cout << "No message provided" << std::endl;
     }
 
     return 0;
