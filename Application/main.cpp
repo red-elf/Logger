@@ -23,9 +23,11 @@ int main(int argc, char *argv[]) {
 
     program
             .add_argument("-l", "--level")
+            .default_value(std::string("v"))
             .help("Log level: verbose (v), debug (d), info (i), warning (w), error (e)");
 
     program.add_argument("-t", "--tag")
+            .default_value(std::string(""))
             .help("The log tag");
 
     program.add_argument("-m", "--message")
