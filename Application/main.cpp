@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
             .default_value(std::string(""))
             .help("The application identifier");
 
-    program.add_argument("-v", "--applicationVersion")
+    program.add_argument("-n", "--applicationVersion")
             .default_value(std::string(""))
             .help("The application version");
 
@@ -49,10 +49,6 @@ int main(int argc, char *argv[]) {
     program.add_argument("-t", "--tag")
             .default_value(std::string(""))
             .help("The log tag");
-
-    program.add_argument("-m", "--message")
-            .help("The log message (required!)")
-            .required();
 
     std::string description("Red Elf Logger");
     description.append(" (").append(relog).append(")");
@@ -78,9 +74,21 @@ int main(int argc, char *argv[]) {
 
     try {
 
+        auto count = 0;
+        std::string line;
+        std::string message;
+        while (getline(std::cin, line)) {
+
+            message.append(line);
+            if (count > 0) {
+
+                message.append("\n");
+            }
+            count++;
+        }
+
         auto tag = program.get<std::string>("tag");
         auto level = program.get<std::string>("level");
-        auto message = program.get<std::string>("message");
         auto appId = program.get<std::string>("applicationId");
         auto appVersion = program.get<std::string>("applicationVersion");
 

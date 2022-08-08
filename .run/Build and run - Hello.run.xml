@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Build and run - Hello" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="sh Versionable/versionable_build.sh Application .. &amp;&amp; Application/Build/relog -m &quot;Hello world&quot;" />
+    <option name="SCRIPT_TEXT" value="sh Versionable/versionable_build.sh Application .. &amp;&amp; echo &quot;hello&quot; | Application/Build/relog" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
