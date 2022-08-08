@@ -3,8 +3,6 @@
 #include "Logger.h"
 #include "LogLevel.h"
 #include "LoggerSimple.h"
-#include "LoggerFactory.h"
-#include "LoggerLibrary.h"
 #include "BuildConfig.h"
 
 int main(int argc, char *argv[]) {
