@@ -60,9 +60,18 @@ int main(int argc, char *argv[]) {
 
     try {
 
+        auto appId = "tbd";
+        auto appVersion = "tbd";
+
         auto tag = program.get<std::string>("tag");
         auto level = program.get<std::string>("level");
         auto message = program.get<std::string>("message");
+
+        auto trace = std::list<std::string>();
+
+        auto time = std::chrono::duration_cast<std::chrono::milliseconds>
+                (std::chrono::system_clock::now().time_since_epoch()).count();
+
 
         // verbose (v), debug (d), info (i), warning (w), error (e)
         auto logLevel = LogLevel::verbose;
@@ -88,7 +97,7 @@ int main(int argc, char *argv[]) {
         }
 
         LoggerSimple logger;
-        logger.log(logLevel, tag, message);
+        logger.logFull(appId, appVersion, time, logLevel, tag, message, trace);
 
     } catch (std::logic_error &e) {
 
