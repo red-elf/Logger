@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
         auto message = program.get<std::string>("message");
 
         LoggerSimple logger;
-        logger.log(LogLevel::verbose, message);
+        logger.log(LogLevel::verbose, tag, message);
 
     } catch (std::logic_error &e) {
 
