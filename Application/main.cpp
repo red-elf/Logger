@@ -3,7 +3,24 @@
 #include "Logger.h"
 #include "LogLevel.h"
 #include "LoggerSimple.h"
+#include "LoggerChained.h"
 #include "BuildConfig.h"
+
+Logger *createLogger(const std::string &out) {
+
+    static LoggerSimple loggerSimple;
+
+    if (!out.empty()) {
+
+        // TODO: Chain the file output
+        static LoggerChained loggerChained;
+        loggerChained.addLogger(&loggerSimple);
+        return &loggerChained;
+    }
+
+
+    return &loggerSimple;
+}
 
 void tokenize(std::string const &str, const char delim, std::list<std::string> &out) {
 
@@ -134,8 +151,8 @@ int main(int argc, char *argv[]) {
             logLevel = LogLevel::error;
         }
 
-        LoggerSimple logger;
-        logger.logFull(appId, appVersion, time, logLevel, tag, message, trace);
+        auto logger = createLogger(out);
+        logger->logFull(appId, appVersion, time, logLevel, tag, message, trace);
 
     } catch (std::logic_error &e) {
 
