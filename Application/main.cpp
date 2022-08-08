@@ -81,6 +81,7 @@ int main(int argc, char *argv[]) {
         auto count = 0;
         std::string line;
         std::string message;
+
         while (getline(std::cin, line)) {
 
             message.append(line);
@@ -91,8 +92,8 @@ int main(int argc, char *argv[]) {
             count++;
         }
 
-        auto out = program.get<std::string>("out");
         auto tag = program.get<std::string>("tag");
+        auto out = program.get<std::string>("output");
         auto level = program.get<std::string>("level");
         auto appId = program.get<std::string>("applicationId");
         auto appVersion = program.get<std::string>("applicationVersion");
