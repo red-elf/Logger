@@ -23,6 +23,14 @@ int main(int argc, char *argv[]) {
 
     argparse::ArgumentParser program(relog, version);
 
+    program.add_argument("-i", "--applicationId")
+            .default_value(std::string(""))
+            .help("The application identifier");
+
+    program.add_argument("-v", "--applicationVersion")
+            .default_value(std::string(""))
+            .help("The application version");
+
     program
             .add_argument("-l", "--level")
             .default_value(std::string("v"))
@@ -60,12 +68,11 @@ int main(int argc, char *argv[]) {
 
     try {
 
-        auto appId = "tbd";
-        auto appVersion = "tbd";
-
         auto tag = program.get<std::string>("tag");
         auto level = program.get<std::string>("level");
         auto message = program.get<std::string>("message");
+        auto appId = program.get<std::string>("applicationId");
+        auto appVersion = program.get<std::string>("applicationVersion");
 
         auto trace = std::list<std::string>();
 
