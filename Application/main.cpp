@@ -63,7 +63,9 @@ int main(int argc, char *argv[]) {
         auto tag = program.get<std::string>("tag");
         auto level = program.get<std::string>("level");
         auto message = program.get<std::string>("message");
-        std::cout << "Tag: '" << tag << "', Level: '" << level << "', Message: '" << message << "'" << std::endl;
+
+        LoggerSimple logger;
+        logger.log(LogLevel::verbose, message);
 
     } catch (std::logic_error &e) {
 
