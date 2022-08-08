@@ -5,6 +5,18 @@
 #include "LoggerSimple.h"
 #include "BuildConfig.h"
 
+void tokenize(std::string const &str, const char delim, std::list<std::string> &out) {
+
+    size_t start;
+    size_t end = 0;
+
+    while ((start = str.find_first_not_of(delim, end)) != std::string::npos) {
+
+        end = str.find(delim, start);
+        out.push_back(str.substr(start, end - start));
+    }
+}
+
 int main(int argc, char *argv[]) {
 
     auto relog = "relog";
@@ -73,6 +85,13 @@ int main(int argc, char *argv[]) {
         auto appVersion = program.get<std::string>("applicationVersion");
 
         auto trace = std::list<std::string>();
+
+        auto pos = message.find('\n');
+        if (pos != std::string::npos) {
+
+            tokenize(message, '\n', trace);
+            message = "\t";
+        }
 
         auto time = std::chrono::duration_cast<std::chrono::milliseconds>
                 (std::chrono::system_clock::now().time_since_epoch()).count();
