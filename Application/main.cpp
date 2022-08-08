@@ -64,8 +64,31 @@ int main(int argc, char *argv[]) {
         auto level = program.get<std::string>("level");
         auto message = program.get<std::string>("message");
 
+        // verbose (v), debug (d), info (i), warning (w), error (e)
+        auto logLevel = LogLevel::verbose;
+
+        if (level == "d" || level == "debug") {
+
+            logLevel = LogLevel::debug;
+        }
+
+        if (level == "i" || level == "info") {
+
+            logLevel = LogLevel::info;
+        }
+
+        if (level == "w" || level == "warning") {
+
+            logLevel = LogLevel::warning;
+        }
+
+        if (level == "e" || level == "error") {
+
+            logLevel = LogLevel::error;
+        }
+
         LoggerSimple logger;
-        logger.log(LogLevel::verbose, tag, message);
+        logger.log(logLevel, tag, message);
 
     } catch (std::logic_error &e) {
 
