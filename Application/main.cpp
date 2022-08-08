@@ -50,6 +50,10 @@ int main(int argc, char *argv[]) {
             .default_value(std::string(""))
             .help("The log tag");
 
+    program.add_argument("-o", "--output")
+            .default_value(std::string(""))
+            .help("The path for the output to file");
+
     std::string description("Red Elf Logger");
     description.append(" (").append(relog).append(")");
 
@@ -87,6 +91,7 @@ int main(int argc, char *argv[]) {
             count++;
         }
 
+        auto out = program.get<std::string>("out");
         auto tag = program.get<std::string>("tag");
         auto level = program.get<std::string>("level");
         auto appId = program.get<std::string>("applicationId");
