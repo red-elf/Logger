@@ -1,6 +1,10 @@
 # Logger
 
-Logger, the C++ Library by the Red Elf.
+Logger, the C++ library and utility by the Red Elf.
+
+## What is Logger?
+
+Tbd.
 
 ## Cloning the project
 
