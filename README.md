@@ -1,6 +1,6 @@
 # Logger
 
-Logger, the C++ library and utility by the Red Elf.
+Logger, the C++ library and utility by Red Elf.
 
 ## What is Logger?
 
