@@ -10,17 +10,18 @@
 Logger *createLogger(const std::string &out) {
 
     static LoggerSimple simpleLogger;
+    static const std::string &output = out;
 
-    if (!out.empty()) {
+    if (!output.empty()) {
 
         auto outputWriterFunction = [](const std::string &what) {
 
             FileOutputWriter outputWriter;
-            outputWriter.setFileName(""); // TODO: Pass the file name
+            outputWriter.setFileName(output);
             outputWriter.write(what);
         };
 
-        const char *cStr = out.c_str();
+        const char *cStr = output.c_str();
         std::remove(cStr);
         static LoggerSimple fileLogger;
         fileLogger.setOutputWriterFunction(outputWriterFunction);
