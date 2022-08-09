@@ -21,8 +21,6 @@ Logger *createLogger(const std::string &out) {
             outputWriter.write(what);
         };
 
-        const char *cStr = output.c_str();
-        std::remove(cStr);
         static LoggerSimple fileLogger;
         fileLogger.setOutputWriterFunction(outputWriterFunction);
 

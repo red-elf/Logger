@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Build and run - Full - Multiline - Saved to file" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="sh Versionable/versionable_build.sh Application .. &amp;&amp; echo &quot;$(cat Assets/anthem.txt)&quot; | Application/Build/relog -t XXX -l debug -n &quot;1.0.0&quot; -i &quot;relog&quot; -o Assets/log.txt" />
+    <option name="SCRIPT_TEXT" value="rm Assets/log.txt &amp;&amp; sh Versionable/versionable_build.sh Application .. &amp;&amp; echo &quot;$(cat Assets/anthem.txt)&quot; | Application/Build/relog -t XXX -l debug -n &quot;1.0.0&quot; -i &quot;relog&quot; -o Assets/log.txt" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
