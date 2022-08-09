@@ -5,21 +5,34 @@
 #include "LoggerSimple.h"
 #include "LoggerChained.h"
 #include "BuildConfig.h"
+#include "FileOutputWriter.h"
 
 Logger *createLogger(const std::string &out) {
 
-    static LoggerSimple loggerSimple;
+    static LoggerSimple simpleLogger;
 
     if (!out.empty()) {
 
-        // TODO: Chain the file output
+        auto outputWriterFunction = [](const std::string &what) {
+
+            FileOutputWriter outputWriter;
+            outputWriter.setFileName(""); // TODO: Pass the file name
+            outputWriter.write(what);
+        };
+
+        const char *cStr = out.c_str();
+        std::remove(cStr);
+        static LoggerSimple fileLogger;
+        fileLogger.setOutputWriterFunction(outputWriterFunction);
+
         static LoggerChained loggerChained;
-        loggerChained.addLogger(&loggerSimple);
+        loggerChained.addLogger(&simpleLogger);
+        loggerChained.addLogger(&fileLogger);
         return &loggerChained;
     }
 
 
-    return &loggerSimple;
+    return &simpleLogger;
 }
 
 void tokenize(std::string const &str, const char delim, std::list<std::string> &out) {
