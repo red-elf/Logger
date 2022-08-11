@@ -70,6 +70,11 @@ int main(int argc, char *argv[]) {
             .default_value(std::string(""))
             .help("The log tag");
 
+    program.add_argument("-m", "--multiline")
+            .default_value(false)
+            .implicit_value(true)
+            .help("Add row log data to every line for the multi-line entries");
+
     program.add_argument("-o", "--output")
             .default_value(std::string(""))
             .help("The path for the output to file");
@@ -107,6 +112,7 @@ int main(int argc, char *argv[]) {
             count++;
         }
 
+        auto multiline = program["--multiline"] == true;
         auto tag = program.get<std::string>("tag");
         auto out = program.get<std::string>("output");
         auto level = program.get<std::string>("level");
