@@ -156,7 +156,25 @@ int main(int argc, char *argv[]) {
         }
 
         auto logger = createLogger(out);
-        logger->logFull(appId, appVersion, time, logLevel, tag, message, trace);
+        if (multiline) {
+
+            for (const std::string row: trace) {
+
+                logger->logFull(
+
+                        appId,
+                        appVersion,
+                        time,
+                        logLevel,
+                        tag,
+                        row,
+                        std::list<std::string>()
+                );
+            }
+        } else {
+
+            logger->logFull(appId, appVersion, time, logLevel, tag, message, trace);
+        }
 
     } catch (std::logic_error &e) {
 
