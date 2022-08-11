@@ -4,7 +4,7 @@
 #include "LogLevel.h"
 #include "LoggerSimple.h"
 #include "LoggerChained.h"
-#include "BuildConfig.h"
+#include "VersionInfo.h"
 #include "FileOutputWriter.h"
 
 Logger *createLogger(const std::string &out) {
@@ -49,16 +49,7 @@ void tokenize(std::string const &str, const char delim, std::list<std::string> &
 int main(int argc, char *argv[]) {
 
     auto relog = "relog";
-    auto version = std::to_string(VERSIONABLE_VERSION_PRIMARY)
-            .append(".")
-            .append(std::to_string(VERSIONABLE_VERSION_SECONDARY))
-            .append(".")
-            .append(std::to_string(VERSIONABLE_VERSION_PATCH));
-
-    if (VERSIONABLE_SNAPSHOT) {
-
-        version.append("-SNAPSHOT");
-    }
+    auto version = getVersion();
 
     argparse::ArgumentParser program(relog, version);
 
@@ -83,13 +74,11 @@ int main(int argc, char *argv[]) {
             .default_value(std::string(""))
             .help("The path for the output to file");
 
-    std::string description("Red Elf Logger");
+    std::string description(getVersion());
     description.append(" (").append(relog).append(")");
 
-    // TODO: Obtain the value via BuildConfig:
-    std::string landingPage("https://github.com/red-elf/Logger");
     std::string epilog("Project homepage: ");
-    epilog.append(landingPage);
+    epilog.append(getHomepage());
 
     program.add_description(description);
     program.add_epilog(epilog);
