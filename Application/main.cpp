@@ -74,13 +74,10 @@ int main(int argc, char *argv[]) {
             .default_value(std::string(""))
             .help("The path for the output to file");
 
-    std::string description(getVersion());
-    description.append(" (").append(relog).append(")");
-
     std::string epilog("Project homepage: ");
     epilog.append(getHomepage());
 
-    program.add_description(description);
+    program.add_description(getDescription());
     program.add_epilog(epilog);
 
     try {
