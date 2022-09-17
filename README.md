@@ -4,7 +4,7 @@ Logger, the C++ library and utility by Red Elf.
 
 ## What is Logger?
 
-Tbd.
+The logging library for integration into your C++ project codebase and the logging utility application.
 
 ## Cloning the project
 
