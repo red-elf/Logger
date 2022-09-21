@@ -7,3 +7,6 @@
 [submodule "Versionable"]
 	path = Versionable
 	url = git@github.com:red-elf/Versionable.git
+[submodule "Upstreamable"]
+	path = Upstreamable
+	url = git@github.com:red-elf/Upstreamable.git
